@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do</title>
+	<style>
+		body {
+			background-color: yellow;
+		}
+		h1 {
+			margin-left: 20px;
+		}
+		#input {
+			margin: 20px;
+		}
+		input[type="text"] {
+			width: 80%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: none;
+			border-radius: 4px;
+			background-color: white;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+		ul {
+			list-style-type: none;
+			margin-left: 20px;
+			padding-left: 0;
+		}
+		li {
+			color: black;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			cursor:pointer
+		}
+        li:hover{
+            background-color:black;
+            color:white
+        }
+        #todo{
+            margin-right:20px
+        }
+        #done{
+            margin-left:20px
+        }
+        .container{
+            display:flex
+        }
+        .column{
+            flex-basis:auto
+        }
+        .header{
+            font-size:x-large
+        }
+    </style>
+</head>
+<body>
+    <h1>To Do</h1>
+    <div class="container">
+        <div id="input" class="column">
+            <form>
+                <input type="text" placeholder="Enter new task here" id="task">
+                <input type="button" value="Add" onclick="addTask()">
+            </form>
+        </div>
+        <div id="todo" class="column">
+            <h2 class="header">To Do</h2>
+            <ul id="todoList"></ul>
+        </div>
+        <div id="done" class="column">
+            <h2 class="header">Done</h2>
+            <ul id="doneList"></ul>
+        </div>
+    </div>
+
+    <script>
+        var todoList = document.getElementById("todoList");
+        var doneList = document.getElementById("doneList");
+        
+        function addTask() {
+            var task = document.getElementById("task").value.trim();
+            
+            if (task) {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(task));
+                li.onclick = function() { moveTask(this); };
+                
+                todoList.appendChild(li);
+                
+                document.getElementById("task").value = "";
+                document.getElementById("task").focus();
+            }
+        }
+        
+        function moveTask(li) {
+            if (li.parentNode == todoList) {
+                doneList.appendChild(li);
+            } else {
+                todoList.appendChild(li);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
