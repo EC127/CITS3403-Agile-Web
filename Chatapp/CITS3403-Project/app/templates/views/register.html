@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css')}}">
+{% endblock %}
+
+{% block body %}
+    <div class="register-page">
+        <div class="form">
+            <form class="register-form">
+                <input type="text" placeholder="username" id="username"/>
+                <div id="username-error"></div>  <!-- 添加的用户名错误提示信息 -->
+
+                <input type="password" placeholder="password" id="password"/>
+                <div id="password-error"></div>  <!-- 添加的密码错误提示信息 -->
+
+                <input type="password" placeholder="confirm password" id="confirm-password"/>
+                <div id="confirm-password-error"></div>  <!-- 添加的密码错误提示信息 -->
+
+                <button type="submit">create</button>
+                <div id="register-error"></div>  <!-- 添加的登录错误提示信息 -->
+
+                <p class="message">Already registered? <a href="/login">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/esm/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock %}

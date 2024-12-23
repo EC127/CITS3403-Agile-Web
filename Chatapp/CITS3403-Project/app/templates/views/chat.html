@@ -1,0 +1,32 @@
+{% extends "nevigation_bar.html" %}
+
+{% block title1 %}
+  Chat Interface
+{% endblock %}
+
+{% block css1 %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="chat-container">
+      <div class="chat-header">
+        <h2>Chat</h2>
+      </div>
+      <div class="chat-history">
+        <div class="message-bot">
+          <p>Hello there! I'm a chatbot here to assist you in any way I can. I'm designed to answer your questions, provide
+          information, and help you with tasks. How can I help you today?</p>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message here">
+        <button>Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
+

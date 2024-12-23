@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% block title1 %}{% endblock %}
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nevigation_bar.css')}}">
+    {% block css1 %}
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="menu-icon">
+        <span class="menu-icon__line"></span>
+        <span class="menu-icon__line"></span>
+        <span class="menu-icon__line"></span>
+    </div>
+
+    <div clasee="container">
+        <nav class="navbar">
+            <ul>
+                <li><b>Hello, {{ session['username'] }}</b></li>
+                <li><a href="" id="label"></a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+    {% block content %}{% endblock %}
+{% endblock %}
+
+{% block js %}
+    <script>
+        // Define a variable and assign a value to it
+        var searchLabel = "Search";
+        var chatLabel = "Chat";
+        var linkUrl_c = "/chat";
+        var linkUrl_s = "/search";
+        // Set the content of the HTML element using the variable
+        function setLabel() {
+            if (document.title=="AI chatbot - Chat Interface"){
+                document.getElementById("label").innerHTML = searchLabel;
+                document.getElementById("label").href = linkUrl_s;
+            }
+            else {
+                document.getElementById("label").innerHTML = chatLabel;
+                document.getElementById("label").href = linkUrl_c;
+            }
+        }
+
+        function logout() {
+            if (confirm("Are you sure you want to logout?")) {
+                // 发送GET请求到后端的/logout路由
+                fetch('/logout', {
+                    method: 'GET',
+                    credentials: 'same-origin'  // 保持与当前页面相同的凭证
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.href = "/login";  // 重定向到登录页面
+                        } else {
+                            alert('Logout failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Logout failed');
+                    });
+            }
+        }
+    </script>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/esm/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+    {% block js1 %}
+    {% endblock %} 
+{% endblock %}
+

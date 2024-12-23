@@ -1,0 +1,101 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* adjust this value as needed */
+  }
+  
+  form {
+    display: flex;
+    justify-content: column;
+    align-items: center;
+  }
+  
+  input[type="text"] {
+    width: 500px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+  }
+  
+  button[type="submit"] {
+    height: 50px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
+  .search-result {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 700px;
+    max-height: 550px; 
+    overflow-y: scroll; 
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+  }
+  
+  
+  .search-result-item, .timestamp, .sender{
+    display: block; 
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 0 10px;
+    height: auto; 
+    text-align: center; 
+  }
+
+  .sender{
+    position: relative;
+  }
+
+  .sender::after {
+    content: "";
+    display: block;
+    width: 675px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .warning {
+    text-align: center; 
+    color: red; 
+    font-size: 24px;
+  }
+
+  body {
+    background: #76b852;
+    background: rgb(141, 194, 111);
+    background: linear-gradient(
+      90deg,
+      rgba(141, 194, 111, 1) 0%,
+      rgba(118, 184, 82, 1) 50%
+    );
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  

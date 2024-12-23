@@ -1,0 +1,7 @@
+做base templates 
+
+页面竖着的导航栏 project名字 
+aichat 
+username
+chats history ->search bar
+logout -> login page
