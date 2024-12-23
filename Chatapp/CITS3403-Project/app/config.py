@@ -8,4 +8,4 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + \
         os.path.join(basedir, 'data/aichat.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    OPENAI_API_KEY = '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'
+    OPENAI_API_KEY = 'ur own key'
